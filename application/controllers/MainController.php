@@ -8,7 +8,7 @@ class MainController extends Controller {
 
     public function indexAction() {
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['register']) == 'register') {
             $register = new \stdClass();
 
             $register->name = $_POST['name'];
@@ -17,13 +17,20 @@ class MainController extends Controller {
             $register->gender = $_POST['gender'];
             $register->birthday = $_POST['birthday'];
 
-            $res = $this->model->addUser($register);
-
+            $r = $this->model->checkUser($register);
+            if($r === false){
+                $vars = ['message' => 'nameExist'];
+            }else{
+                $res = $this->model->addUser($register);
+                if($res === false){$_SESSION['user'] = $register->name;}
+                isset($res)? $vars = ['message' => $res] : $vars = ['message' => 0];
+            }
+        }else {
+            isset($res) ? $vars = ['message' => $res] : $vars = ['message' => 0];
         }
-        isset($res)? $vars = ['news' => $res] : $vars = ['news' => 0];
+
 
         $this->view->render('Register', $vars);
-        debug($_POST);
     }
 
 }

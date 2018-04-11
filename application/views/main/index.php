@@ -11,6 +11,11 @@
                 <li><a href="wall" class="nav-color">Feedback</a></li>
                 <li><a href="wall" class="nav-color">Feedback list</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <form class="form-horizontal" method="post" id="">
+                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut pull-right"> <?php } ?>
+                </form>
+            </ul>
         </div>
     </nav>
 </div>
@@ -75,26 +80,36 @@
     <!-- отправить -->
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-            <input type="submit" id="btn_register" name="register" class="btn btn-primary" value="Регистрация">
+            <input type="submit" id="btn_register" name="register" class="btn btn-primary" value="register">
         </div>
     </div>
 </form>
-<?php if($news === false){ ?>
+<?php if($message === false){ ?>
     <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">Well done!</h4>
     </div>
-<?php }else if($news === true){ ?>
+<?php }else if($message === true){ ?>
     <div class="alert alert-danger" role="alert">
         <h4 class="alert-heading">Something wrong!</h4>
     </div>
+<?php }else if($message === 'nameExist'){ ?>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Name exist!</h4>
+    </div>
 <?php }?>
+
 </body>
 <script src="/public/scripts/jquery.js"></script>
 <script src="/public/scripts/form_valid.js"></script>
 <script></script>
 <?php
 
-debug($_POST);
+if(isset($_POST['Out']) == "LogOut"){
+    unset($_SESSION["user"]);
+    session_destroy();
+}
+if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user'];}
+
 
 
 
