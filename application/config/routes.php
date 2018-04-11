@@ -7,6 +7,11 @@ return [
 		'action' => 'index',
 	],
 
+    'weather' => [
+        'controller' => 'weather',
+        'action' => 'index',
+    ],
+
 	'account/login' => [
 		'controller' => 'account',
 		'action' => 'login',

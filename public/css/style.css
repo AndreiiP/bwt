@@ -1,0 +1,17 @@
+.wdata tbody td {
+    padding: 0 3px;
+    text-align: center;
+}
+.wdata tbody th, .wdata tbody td {
+    border-top: 1px solid #b1d0e6;
+    border-bottom: 1px solid #b1d0e6;
+    color: #069;
+    font-size: 17px;
+    font-weight: bold;
+}
+table {
+    border-collapse: collapse;
+}
+.wsection {
+    padding-top: 20px;
+}
