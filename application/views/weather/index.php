@@ -10,8 +10,6 @@ $tb2 = $doc->find('h1');
 $tb3 = $doc->find('.wtab dl:eq(0) dd');
 $tb4 = $doc->find('.wtab dl:eq(0) dt');
 
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,7 +31,7 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
             <ul class="nav navbar-nav navbar-left nav-color">
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
-                <li><a href="wall" class="nav-color">Feedback</a></li>
+                <li><a href="/feedback" class="nav-color">Feedback</a></li>
                 <li><a href="wall" class="nav-color">Feedback list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

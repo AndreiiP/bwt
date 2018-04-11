@@ -12,6 +12,11 @@ return [
         'action' => 'index',
     ],
 
+    'feedback' => [
+        'controller' => 'feedback',
+        'action' => 'index',
+    ],
+
 	'account/login' => [
 		'controller' => 'account',
 		'action' => 'login',

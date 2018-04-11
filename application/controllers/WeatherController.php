@@ -23,9 +23,4 @@ class WeatherController extends Controller {
         $this->view->render('Weather', $vars);
     }
 
-    public function Sign_in(){
-
-    }
-
-
 }

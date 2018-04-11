@@ -8,7 +8,7 @@
             <ul class="nav navbar-nav navbar-left nav-color">
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
-                <li><a href="wall" class="nav-color">Feedback</a></li>
+                <li><a href="/feedback" class="nav-color">Feedback</a></li>
                 <li><a href="wall" class="nav-color">Feedback list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -35,16 +35,16 @@
 <form class="form-horizontal" method="post" id="form">
     <!-- Имя -->
     <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-8">
+        <label for="inputName" class="col-sm-4 control-label">Name</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" id="name" name="name" placeholder="Ben" pattern="[a-zA-Zа-яА-ЯёЁ]+" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
     </div>
     <!-- Фамилия -->
     <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Surname</label>
-        <div class="col-sm-8">
+        <label for="inputName" class="col-sm-4 control-label">Surname</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" id="surname" name="surname" placeholder="Pitterson" pattern="[a-zA-Zа-яА-ЯёЁ]+" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -52,8 +52,8 @@
 
     <!-- Email -->
     <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-8">
+        <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-4">
             <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -61,8 +61,8 @@
 
     <!-- Пол -->
     <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">gender</label>
-        <div class="col-sm-8">
+        <label for="inputName" class="col-sm-4 control-label">gender</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" id="gender" name="gender" placeholder="female" pattern="[a-zA-Zа-яА-ЯёЁ]+">
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -70,8 +70,8 @@
 
     <!-- день рождения -->
     <div class="form-group">
-        <label for="inputName" class="col-sm-2 control-label">Birthday</label>
-        <div class="col-sm-8">
+        <label for="inputName" class="col-sm-4 control-label">Birthday</label>
+        <div class="col-sm-4">
             <input type="text" class="form-control" id="" name="birthday" placeholder="2001-09-03" pattern="([0-9]{4})[-]([0-9]{2})[-]([0-9]{2})">
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
@@ -79,7 +79,7 @@
 
     <!-- отправить -->
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-10">
             <input type="submit" id="btn_register" name="register" class="btn btn-primary" value="register">
         </div>
     </div>
