@@ -32,7 +32,6 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
-                <li><a href="wall" class="nav-color">Feedback list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
@@ -49,7 +48,7 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
       <?php echo $tb4; ?>
       <?php echo $tb3; ?>
       <?php echo $tbl; ?>
-      <?php echo "Пользователь: ".$_SESSION['user']; ?>
+      <?php /*echo "Пользователь: ".$_SESSION['user']; */?>
   <?php }else{ ?>
     <h1 class="headerFormName text-center">Sign in</h1>
     <form class="form-horizontal" method="post" id="form2">

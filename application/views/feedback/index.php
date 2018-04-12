@@ -19,7 +19,6 @@
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
-                <li><a href="wall" class="nav-color">Feedback list</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
@@ -45,7 +44,7 @@
     <div class="form-group">
         <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
         <div class="col-sm-4">
-            <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" required>
             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
         </div>
     </div>
@@ -69,17 +68,35 @@
             <input type="submit" id="sign in" name="send" class="btn btn-primary" value="send">
         </div>
     </div>
+    <hr>
 </form>
-
 <?php if(isset($message)){
-if($message === 'error'){ ?>
-    <div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Captcha failed. try again</h4>
+    if($message === 'error'){ ?>
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Captcha failed. try again</h4>
+        </div>
+    <?php } else if($message === 'success'){?>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Success</h4>
+        </div>
+    <?php } } ?>
+<?php if(isset($_SESSION['user'])){ ?>
+<?php foreach ($feed as $value){?>
+<div class="col-md-2"></div>
+<div class="container">
+    <div class="col-md-12">
+        <div class="list-group">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-info"><?php echo "Имя: ".$value['name'];?><span class="email_right"><?php echo $value['email'];?></span></a>
+                <a href="#" class="list-group-item msg_h"><?php echo $value['message'];?></a>
+            </div>
+        </div>
     </div>
-<?php } else if($message === 'success'){?>
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Well</h4>
-    </div>
-<?php } } ?>
+</div>
+<?php }} ?>
+
+
+
 
 

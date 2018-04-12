@@ -20,5 +20,13 @@ class Feedback extends Model {
         }
         return $error;
     }
+    public function getFeeds(){
+        $q = "SELECT name, email, message FROM feedback";
+        $result = $this->db->row($q);
+
+        return $result;
+        //return $result->execute();
+
+    }
 
 }

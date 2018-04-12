@@ -15,3 +15,10 @@ table {
 .wsection {
     padding-top: 20px;
 }
+.email_right {
+    display: block;
+    float: right;
+}
+.msg_h {
+    min-height: 100px;
+}
