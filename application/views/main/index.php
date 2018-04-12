@@ -10,6 +10,7 @@
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
+                <li><a href="/feedbacklist" class="nav-color">feedbacklist</a></li>
                 <li><a href="#" class="nav-color user"><?php if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user']; }?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -23,8 +23,8 @@ class FeedbackController extends Controller {
                 $vars['message'] = 'error';
             }
         }
-        $result_feeds = $this->model->getFeeds();
-        $vars['feed'] = $result_feeds;
+        /*$result_feeds = $this->model->getFeeds();
+        $vars['feed'] = $result_feeds;*/
         $one = rand(1,9);
         $two = rand(1,9);
         $vars['one'] = $one;

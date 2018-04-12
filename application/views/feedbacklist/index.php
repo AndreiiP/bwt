@@ -1,31 +1,9 @@
-<?php
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="/public/css/style.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/public/lib/phpQuery.php';
-$gismeteo = 'http://www.gismeteo.ua/city/daily/5093/';
-$file = file_get_contents ($gismeteo);
-
-$doc = phpQuery::newDocument($file);
-$tbl = $doc->find('.wsection');
-$tb2 = $doc->find('h1');
-$tb3 = $doc->find('.wtab dl:eq(0) dd');
-$tb4 = $doc->find('.wtab dl:eq(0) dt');
-
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/public/css/style.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <title>Weather</title>
-</head>
-<body>
-<div class="content">
+<div class="content feedlist">
     <nav class="navbar-inverse">
         <div class="collapse navbar-collapse" id="main-menu" >
             <ul class="nav navbar-nav navbar-left nav-color">
@@ -37,21 +15,28 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
-                   <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut"> <?php } ?>
+                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out" class="btn btn-primary LogOut"> <?php } ?>
                 </form>
-
             </ul>
+
         </div>
     </nav>
 </div>
-<div class="container">
-  <?php if(isset($_SESSION['user'])) {?>
-      <?php echo $tb2; ?>
-      <?php echo $tb4; ?>
-      <?php echo $tb3; ?>
-      <?php echo $tbl; ?>
-      <?php /*echo "Пользователь: ".$_SESSION['user']; */?>
-  <?php }else{ ?>
+<?php if(isset($_SESSION['user'])){ ?>
+    <?php foreach ($feed as $value){?>
+        <div class="col-md-2"></div>
+        <div class="container">
+            <div class="col-md-12">
+                <div class="list-group">
+
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-info"><?php echo "Имя: ".$value['name'];?><span class="email_right"><?php echo $value['email'];?></span></div>
+                        <div class="list-group-item msg_h"><?php echo $value['message'];?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php }}else{ ?>
     <h1 class="headerFormName text-center">Sign in</h1>
     <form class="form-horizontal" method="post" id="form2">
         <!-- Имя -->
@@ -78,22 +63,14 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
             </div>
         </div>
     </form>
-  <?php } ?>
-
-</div>
-</body>
-</html>
-<?php
-if(isset($_POST['Out']) == "LogOut"){
+<?php } ?>
+<?php if(isset($_POST['Out']) == "LogOut"){
     unset($_SESSION["user"]);
     session_destroy();
-    header("Location: /");
-} ?>
+    echo "<script>window.location.href='feedbacklist'</script>";
+}?>
 <?php if($message === false){ ?>
-<div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">Name not found!</h4>
-</div>
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Name not found!</h4>
+    </div>
 <?php }?>
-
-
-

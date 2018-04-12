@@ -4,28 +4,28 @@ namespace application\models;
 
 use application\core\Model;
 
-class Feedback extends Model {
+class Feedbacklist extends Model {
 
-    public function addFeedBack($feedBack){
-        $q = "INSERT INTO feedback (`name`, `email`, `message`)
-        	VALUES ('$feedBack->name',
-        			'$feedBack->email',
-        			'$feedBack->message')";
+    public function signIn($sign) {
+        $q = "SELECT name FROM users WHERE name = '$sign->name' AND email = '$sign->email'";
         $result = $this->db->query($q);
 
+        $result->execute();
+
         if($result->rowCount() > 0) {
-            $error = false;
-        } else {
             $error = true;
+            $_SESSION['user'] = $sign->name;
+        } else {
+            $error = false;
+
         }
         return $error;
     }
-    /*public function getFeeds(){
+    public function getFeeds(){
         $q = "SELECT name, email, message FROM feedback ORDER BY id DESC";
         $result = $this->db->row($q);
 
         return $result;
-
-    }*/
+    }
 
 }

@@ -16,5 +16,9 @@ return [
         'controller' => 'feedback',
         'action' => 'index',
     ],
+    'feedbacklist' => [
+        'controller' => 'feedbacklist',
+        'action' => 'index',
+    ],
 	
 ];

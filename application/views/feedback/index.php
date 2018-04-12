@@ -19,6 +19,7 @@
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
+                <li><a href="/feedbacklist" class="nav-color">feedbacklist</a></li>
                 <li><a href="#" class="nav-color user"><?php if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user']; }?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -81,28 +82,13 @@
             <h4 class="alert-heading">Success</h4>
         </div>
     <?php } } ?>
-<?php if(isset($_SESSION['user'])){ ?>
-<?php foreach ($feed as $value){?>
-<div class="col-md-2"></div>
-<div class="container">
-    <div class="col-md-12">
-        <div class="list-group">
 
-            <div class="list-group">
-                <div class="list-group-item list-group-item-info"><?php echo "Имя: ".$value['name'];?><span class="email_right"><?php echo $value['email'];?></span></div>
-                <div class="list-group-item msg_h"><?php echo $value['message'];?></div>
-            </div>
-        </div>
-    </div>
-</div>
 <script src="/public/scripts/jquery.js"></script>
 <script src="/public/scripts/feddback.js"></script>
-<?php }}
-if(isset($_POST['Out']) == "LogOut"){
+<?php if(isset($_POST['Out']) == "LogOut"){
 unset($_SESSION["user"]);
 session_destroy();
     echo "<script>window.location.href='feedback'</script>";
-
 }
 
 
