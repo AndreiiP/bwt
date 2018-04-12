@@ -66,7 +66,7 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
         </div>
@@ -86,7 +86,7 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
 if(isset($_POST['Out']) == "LogOut"){
     unset($_SESSION["user"]);
     session_destroy();
-    header("Location: /");
+    echo "<script>window.location.href='weather'</script>";
 } ?>
 <?php if($message === false){ ?>
 <div class="alert alert-danger" role="alert">

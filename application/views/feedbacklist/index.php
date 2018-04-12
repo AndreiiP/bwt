@@ -52,7 +52,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
             <div class="col-sm-4">
-                <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                <input type="email" class="form-control" name="email" id="email" placeholder="pitterson@gmail.com" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
                 <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
             </div>
         </div>
