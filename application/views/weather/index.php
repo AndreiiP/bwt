@@ -50,7 +50,6 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
       <?php echo $tb4; ?>
       <?php echo $tb3; ?>
       <?php echo $tbl; ?>
-      <?php /*echo "Пользователь: ".$_SESSION['user']; */?>
   <?php }else{ ?>
     <h1 class="headerFormName text-center">Sign in</h1>
     <form class="form-horizontal" method="post" id="form2">
