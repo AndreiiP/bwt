@@ -2,7 +2,7 @@
 
 return [
 	'host' => 'localhost',
-	'name' => 'news',
+	'name' => 'bwt_test',
 	'user' => 'root',
 	'password' => '',
 ];

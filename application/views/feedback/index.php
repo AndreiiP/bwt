@@ -19,10 +19,11 @@
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
+                <li><a href="#" class="nav-color user"><?php if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user']; }?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
-                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut pull-right"> <?php } ?>
+                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut"> <?php } ?>
                 </form>
 
             </ul>
@@ -64,7 +65,7 @@
 
     <!-- Отправить -->
     <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-1">
             <input type="submit" id="sign in" name="send" class="btn btn-primary" value="send">
         </div>
     </div>
@@ -88,14 +89,21 @@
         <div class="list-group">
 
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-info"><?php echo "Имя: ".$value['name'];?><span class="email_right"><?php echo $value['email'];?></span></a>
-                <a href="#" class="list-group-item msg_h"><?php echo $value['message'];?></a>
+                <div class="list-group-item list-group-item-info"><?php echo "Имя: ".$value['name'];?><span class="email_right"><?php echo $value['email'];?></span></div>
+                <div class="list-group-item msg_h"><?php echo $value['message'];?></div>
             </div>
         </div>
     </div>
 </div>
-<?php }} ?>
+<script src="/public/scripts/jquery.js"></script>
+<script src="/public/scripts/feddback.js"></script>
+<?php }}
+if(isset($_POST['Out']) == "LogOut"){
+unset($_SESSION["user"]);
+session_destroy();
+    echo "<script>window.location.href='feedback'</script>";
 
+}
 
 
 

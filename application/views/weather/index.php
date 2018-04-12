@@ -32,10 +32,11 @@ $tb4 = $doc->find('.wtab dl:eq(0) dt');
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
+                <li><a href="#" class="nav-color user"><?php if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user']; }?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
-                   <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut pull-right"> <?php } ?>
+                   <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut"> <?php } ?>
                 </form>
 
             </ul>

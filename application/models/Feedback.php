@@ -21,7 +21,7 @@ class Feedback extends Model {
         return $error;
     }
     public function getFeeds(){
-        $q = "SELECT name, email, message FROM feedback";
+        $q = "SELECT name, email, message FROM feedback ORDER BY id DESC";
         $result = $this->db->row($q);
 
         return $result;

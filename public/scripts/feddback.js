@@ -1,5 +1,6 @@
 $(document).ready(function() {
-		// name
+
+    // name
 		$("#name").focus(function() {
 			$("#name").keyup(function(){
 			if($('#name').val() == ''){
@@ -9,20 +10,8 @@ $(document).ready(function() {
 				$('#name').css('border', 'solid 1px #e5e5e5');
 			}
 		});
-	});
-		//surname
-		$("#surname").focus(function() {
-			$("#surname").keyup(function(){
-			if($('#surname').val() == ''){
-				$('#surname').css('border', 'solid 1px red');
-				$('#surname').attr("placeholder", "enter surname here");
-			}else{
-				$('#surname').css('border', 'solid 1px #e5e5e5');
-			}
-		  });
-		});
-		
-		// //email
+    });
+    // //email
 		$("#email").focus(function() {
 			$("#email").keyup(function(){
 					var email = $(this).val();
@@ -34,5 +23,8 @@ $(document).ready(function() {
 						$('#email').css('border', 'solid 1px #e5e5e5');
 					}
 		});
-	});
+    });
+    
+
+    
 });

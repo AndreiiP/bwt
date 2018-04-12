@@ -9,8 +9,7 @@ class FeedbackController extends Controller {
 
     public function indexAction() {
 
-        $result_feeds = $this->model->getFeeds();
-        $vars['feed'] = $result_feeds;
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['send']) == 'send') {
             $feedBack = new \stdClass();
 
@@ -24,6 +23,8 @@ class FeedbackController extends Controller {
                 $vars['message'] = 'error';
             }
         }
+        $result_feeds = $this->model->getFeeds();
+        $vars['feed'] = $result_feeds;
         $one = rand(1,9);
         $two = rand(1,9);
         $vars['one'] = $one;

@@ -22,3 +22,10 @@ table {
 .msg_h {
     min-height: 100px;
 }
+.LogOut {
+    margin-top: 7px;
+    margin-right: 10px;
+}
+.user {
+    font-size: 20px;
+}

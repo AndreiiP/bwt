@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="/public/css/style.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
@@ -9,12 +10,14 @@
                 <li><a href="/" class="nav-color">Home</a></li>
                 <li><a href="/weather" class="nav-color">Weather</a></li>
                 <li><a href="/feedback" class="nav-color">Feedback</a></li>
+                <li><a href="#" class="nav-color user"><?php if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user']; }?></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <form class="form-horizontal" method="post" id="">
-                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out"  onclick="destroy()" class="btn btn-primary LogOut pull-right"> <?php } ?>
+                    <?php if(isset($_SESSION['user'])){ ?> <input type="submit" value="LogOut" name="Out" class="btn btn-primary LogOut"> <?php } ?>
                 </form>
             </ul>
+
         </div>
     </nav>
 </div>
@@ -78,7 +81,7 @@
 
     <!-- отправить -->
     <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-10">
+        <div class="col-sm-offset-4 col-sm-1">
             <input type="submit" id="btn_register" name="register" class="btn btn-primary" value="register">
         </div>
     </div>
@@ -100,14 +103,13 @@
 </body>
 <script src="/public/scripts/jquery.js"></script>
 <script src="/public/scripts/form_valid.js"></script>
-<script></script>
 <?php
 
 if(isset($_POST['Out']) == "LogOut"){
     unset($_SESSION["user"]);
     session_destroy();
+    echo "<script>window.location.href='/'</script>";
 }
-if(isset($_SESSION['user'])){echo "Пользователь: ".$_SESSION['user'];}
 
 
 
