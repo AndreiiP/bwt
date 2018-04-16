@@ -15,7 +15,7 @@ class MainController extends Controller {
             $register->surname = $_POST['surname'];
             $register->email = $_POST['email'];
             $register->gender = $_POST['gender'];
-            if($_POST['birthday'] == '' ){$_POST['birthday'] = '0000-01-01';}
+            if($_POST['birthday'] == '' ){$_POST['birthday'] = '0001-01-01';}
             $register->birthday = $_POST['birthday'];
 
             $r = $this->model->checkUser($register);
