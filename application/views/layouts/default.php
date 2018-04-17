@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title><?php echo $title; ?></title>
-</head>
-<body>
-<!doctype html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -15,7 +9,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <title>Weather</title>
+	<title><?php echo $title; ?></title>
 </head>
 <body>
 <div class="content">
